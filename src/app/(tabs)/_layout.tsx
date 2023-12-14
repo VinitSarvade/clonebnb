@@ -41,6 +41,12 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors.tabIconSelected,
+        tabBarLabelStyle: {
+          fontFamily: 'mont-regular',
+        },
+        headerTitleStyle: {
+          fontFamily: 'mont-semibold',
+        },
       }}
     >
       {TABS.map(({ name, title, icon, iconProvider: Icon }) => (

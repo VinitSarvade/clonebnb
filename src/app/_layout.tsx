@@ -1,5 +1,11 @@
 import { useEffect } from 'react';
 
+import {
+  Montserrat_300Light,
+  Montserrat_400Regular,
+  Montserrat_500Medium,
+  Montserrat_600SemiBold,
+} from '@expo-google-fonts/montserrat';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useFonts } from 'expo-font';
 import { SplashScreen, Stack } from 'expo-router';
@@ -20,6 +26,10 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
+    'mont-light': Montserrat_300Light,
+    'mont-regular': Montserrat_400Regular,
+    'mont-medium': Montserrat_500Medium,
+    'mont-semibold': Montserrat_600SemiBold,
     ...FontAwesome.font,
   });
 
