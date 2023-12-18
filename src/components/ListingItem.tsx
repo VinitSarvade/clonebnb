@@ -1,36 +1,46 @@
 import { ForwardedRef, forwardRef } from 'react';
 import { View } from 'react-native';
-import Animated from 'react-native-reanimated';
+import Animated, { FadeInLeft } from 'react-native-reanimated';
 
 import { Ionicons } from '@expo/vector-icons';
 import { Image } from 'expo-image';
 
 import { Listing } from '@/assets/data/listings';
-import { Text } from '@/components/Text';
+import Text from '@/components/Text';
 
-const placeholder =
-  'https://kamayo.in/wp-content/themes/koji/assets/images/default-fallback-image.png';
+const AnimatedImage = Animated.createAnimatedComponent(Image);
 
 interface ListingItemProps {
   item: Listing;
   imageClassName?: string;
   containerClassName?: string;
+  index: number;
 }
 
 const ListingItem = forwardRef(
   (
-    { item, imageClassName = '', containerClassName = '' }: ListingItemProps,
+    {
+      item,
+      index,
+      imageClassName = '',
+      containerClassName = '',
+    }: ListingItemProps,
     ref: ForwardedRef<View>
   ) => {
     return (
-      <View className={containerClassName}>
-        <Animated.Image
+      <Animated.View
+        className={containerClassName}
+        entering={FadeInLeft.delay(100)}
+      >
+        <AnimatedImage
           sharedTransitionTag={`listing-${item.id}`}
           source={{
             uri: item.xl_picture_url ?? item.medium_url ?? item.thumbnail_url,
           }}
+          contentFit="cover"
           className={`w-full h-72 rounded-xl ${imageClassName}`}
         />
+
         <View className="mt-3 flex-row items-center justify-between">
           <Text className="font-mon-sb">
             {item.city}, {item.country}
@@ -61,7 +71,7 @@ const ListingItem = forwardRef(
           </Text>
           <Text>night</Text>
         </View>
-      </View>
+      </Animated.View>
     );
   }
 );

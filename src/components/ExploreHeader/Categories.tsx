@@ -4,7 +4,7 @@ import { ScrollView, TouchableOpacity } from 'react-native';
 import { Image } from 'expo-image';
 
 import { Categories as CategoriesList } from '@/assets/data/categories';
-import { Text } from '@/components/Text';
+import Text from '@/components/Text';
 
 interface CategoriesProps {
   selectedIdx: number;

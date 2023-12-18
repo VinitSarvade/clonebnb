@@ -1,9 +1,10 @@
-import { Text as RnText, TextProps as RnTextProps } from "react-native";
+// eslint-disable-next-line no-restricted-imports
+import { Text as RnText, TextProps as RnTextProps } from 'react-native';
 
-export function Text(props: RnTextProps) {
-	return (
-		<RnText className="font-mon" {...props}>
-			{props.children}
-		</RnText>
-	);
+export default function Text(props: RnTextProps) {
+  return (
+    <RnText className="font-mon" {...props}>
+      {props.children}
+    </RnText>
+  );
 }

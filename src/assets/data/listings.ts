@@ -1,6 +1,10 @@
 import list from './listings.json';
 
-export const LISTINGS = list as Listing[];
+export const LISTINGS = (list as Listing[]).filter(
+  (item) =>
+    (item.xl_picture_url || item.medium_url || item.thumbnail_url || '')
+      .length > 0
+);
 
 export interface Listing {
   id: string;
