@@ -16,13 +16,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.vinitsarvade.clonebnb"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.vinitsarvade.clonebnb"
     },
     "web": {
       "bundler": "metro",
@@ -35,6 +37,15 @@
     "experiments": {
       "typedRoutes": true,
       "tsconfigPaths": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "5fa6de73-9e9d-43a7-96c5-bb9163de7873"
+      }
+    },
+    "owner": "vinitsarvade"
   }
 }
